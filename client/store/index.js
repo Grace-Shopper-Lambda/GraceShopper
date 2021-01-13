@@ -5,9 +5,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import singleproduct from './singleproduct'
 import allProducts from './allProducts'
-=======
 import userProfile from './userprofile'
-
 
 const reducer = combineReducers({
   user,

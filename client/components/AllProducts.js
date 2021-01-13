@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../store/allProducts'
 import {Link} from 'react-router-dom'
 
-export class AllProducts extends React.Component {
+class AllProducts extends React.Component {
   componentDidMount() {
     this.props.fetchProducts()
   }
@@ -36,4 +36,4 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(AllProducts)
+export const AllProductsView = connect(mapState, mapDispatch)(AllProducts)
