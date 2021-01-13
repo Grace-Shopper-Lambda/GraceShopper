@@ -47,6 +47,7 @@ const User = db.define('User', {
     //   isCreditCard: true
     // }
   }
+  // start thinking about security here. how can the model help us have tiered access for different users?
 })
 
 module.exports = User

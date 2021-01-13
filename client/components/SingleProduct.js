@@ -15,6 +15,8 @@ export class SingleProduct extends React.Component {
     //this will put 1 of the item into our shopping cart
   }
 
+  /* small note, but you don't need to use async/await in your component
+  mount if you are using redux! the thunks handle that for us */
   componentDidMount = async () => {
     if (this.props.match) {
       await this.fetchProduct(this.props.match.params.id)

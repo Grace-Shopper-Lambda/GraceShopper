@@ -20,6 +20,8 @@ export const fetchProducts = () => {
   }
 }
 
+// consistent naming conventions
+// ok to use _ but you should pick either how you did it for _addProduct or how you did it for setProducts and stick with it
 export const _addProduct = product => ({
   type: ADD_PRODUCTS,
   product
@@ -44,6 +46,7 @@ export const deleteProduct = product => {
   }
 }
 
+// consider making this an empty array rather than an object - then your reducer will be cleaner and you can just map the products in the front end instead of having to do products.all (unless there was another reason you wanted to use an object?)
 const initialState = {
   all: []
 }

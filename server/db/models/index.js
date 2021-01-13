@@ -8,6 +8,8 @@ const Product = require('./singleproduct')
  *    BlogPost.belongsTo(User)
  */
 
+// how will we associate users with orders, and orders with products?
+
 /**
  * We'll export all of our models here, so that any time a module needs a model,
  * we can just require it from 'db/models'
