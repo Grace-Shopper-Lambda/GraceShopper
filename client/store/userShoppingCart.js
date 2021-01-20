@@ -98,6 +98,8 @@ const initialState = {
   userCart: []
 }
 
+// this reducer is a little unwieldy - one reason why refactoring initial state could help with legibility
+// code is harder to maintain and debug when the reducer is lengthy
 export default function userShoppingCartReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER_CART:

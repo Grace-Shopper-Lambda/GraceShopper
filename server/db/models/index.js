@@ -10,6 +10,7 @@ const OrderHistory = require('./orderhistory')
  *    BlogPost.belongsTo(User)
  */
 
+//  associations look great!
 User.hasMany(Order)
 Order.belongsTo(User)
 

@@ -21,6 +21,7 @@ router.get('/:id', async function(req, res, next) {
   }
 })
 
+// don't forget admin middleware for other important business operations
 router.post('/', async (req, res, next) => {
   try {
     const newProduct = await Product.create(req.body)

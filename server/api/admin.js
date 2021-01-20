@@ -3,6 +3,7 @@ const {User} = require('../db/models')
 module.exports = router
 const verify = require('../auth/verify')
 
+// no need to put this here since it already exists in users!
 router.get('/', verify.isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({

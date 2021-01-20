@@ -16,6 +16,7 @@ router.get('/:id/cart', async (req, res, next) => {
       }
     })
     if (cartItems.length === 0) {
+      // you can res.status(404).send(error) here, or just handle on the front end
       const error = new Error('API Cart Is Empty')
       // next(error)
     } else {
@@ -26,6 +27,7 @@ router.get('/:id/cart', async (req, res, next) => {
   }
 })
 
+// this is a creative way to handle this - using req.params.action
 //ensure it remains as put, increases and decreases quantity inside cart
 router.put('/:id/cart/:action', async function(req, res, next) {
   console.log('ACTION----->', req.params.action)
@@ -38,6 +40,7 @@ router.put('/:id/cart/:action', async function(req, res, next) {
         OrderId: OrderId
       }
     })
+    // i'm curious where increment and decrement are coming from? are these custom instance methods?
     if (req.params.action === 'add') {
       await orderItem.increment('quantity')
     }

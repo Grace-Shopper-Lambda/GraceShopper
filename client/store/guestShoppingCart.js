@@ -32,6 +32,7 @@ export const guestCheckout = () => ({
 export const getGuestShoppingCart = () => {
   return async dispatch => {
     try {
+      // no need to await local storage
       const products = await JSON.parse(localStorage.getItem('shoppingCart'))
       dispatch(setGuestShoppingCart(products))
     } catch (err) {
@@ -39,6 +40,8 @@ export const getGuestShoppingCart = () => {
     }
   }
 }
+
+// two versions of addToCart here currently - just in case?
 export const addingToShoppingCart = product => {
   return dispatch => {
     try {
@@ -72,6 +75,8 @@ export const addingToCart = productId => {
   return dispatch => {
     try {
       let cart = JSON.parse(localStorage.getItem('shoppingCart'))
+      // I think forEach would be a better choice, so you can loop and just use
+      // the id check as the filter + increment (then no returning is necessary)
       cart.filter(item => {
         //filter through cart to see and increase the quantity of the product
         if (productId === item.id) {
@@ -107,6 +112,7 @@ export const deletingFromCart = productId => {
   return dispatch => {
     try {
       let cart = JSON.parse(localStorage.getItem('shoppingCart'))
+      // this is a better use of .filter()
       let newCart = cart.filter(item => {
         //filter through cart and return items that are not the product
         if (productId !== item.id) return item
@@ -131,6 +137,8 @@ export const guestCartCheckout = () => {
   }
 }
 
+// you could just make this an array to make the reducer a little cleaner
+// it's probably a lot/not a priority to redo all of your initial states at this point, but it makes for easier access
 const initialState = {
   cart: []
 }

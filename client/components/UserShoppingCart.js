@@ -9,11 +9,15 @@ import {
   userCartCheckout
 } from '../store/userShoppingCart'
 
+// you can consider splitting some code out into smaller components
+// for those that are getting a little longer in the render :)
+
 class UserShoppingCart extends Component {
   componentDidMount() {
     this.props.loadUserShoppingCart(this.props.match.params.id)
   }
 
+  // nice front-end validations on the decimals
   roundDecimal(num) {
     return Number(num).toFixed(2)
   }

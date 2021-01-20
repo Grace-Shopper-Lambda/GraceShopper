@@ -6,6 +6,7 @@ const OrderHistory = db.define('OrderHistory', {
     type: Sequelize.INTEGER,
     defaultValue: 1
   }
+  // you might also want to include price here in case the price changes
 })
 
 module.exports = OrderHistory
