@@ -171,7 +171,39 @@ button {
   color: rgb(0, 0, 0);
   font-size: 20px;
 }
+.orderhistorymap {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
 
+  /* border: 3px rgba(83, 82, 82, 0.63) solid;  */
+
+  /* color: rgba(rgba(139, 122, 122, 0.425)); */
+  font-size: 18px;
+}
+.orderitem {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.orderitem img {
+  border: 0.5 rem pink outset;
+}
+#thefilterer {
+  width: 100%;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+}
+#filter {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
 .flex-container {
   /* min-height: 50vh; */
   display: flex;
@@ -194,18 +226,18 @@ button {
   /* -webkit-text-stroke: 1px #0f1809; */
 }
 .flex-cart {
-  /* min-height: 50vh; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* align-content: stretch; */
   justify-content: top;
-  /* font-size: 12px;
-  margin: 20px;
-  border: 3px rgba(83, 82, 82, 0.425) solid;
-  color: rgba(rgba(139, 122, 122, 0.425));
-  font-size: 18px;
-  -webkit-text-stroke: 2px #898b866e; */
+}
+#borderboi {
+  text-align: center;
+  background: rgb(170, 164, 172);
+  margin: 10px;
+  padding: 10px;
+  border: 3px rgba(83, 82, 82, 0.63) solid;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 h1 {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

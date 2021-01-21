@@ -89,53 +89,62 @@ export class AllProducts extends React.Component {
           {' '}
           <h1 id="shopcart">All Hats</h1>
           <div>
-            <select
-              onChange={e => {
-                this.sortProducts(e)
-              }}
-            >
-              <option value="" disabled selected>
-                Sort by
-              </option>
+            <span id="thefilterer">
+              {' '}
+              <input
+                id="filter"
+                type="text"
+                value={this.state.input}
+                onChange={evt => {
+                  this.setState({input: evt.target.value})
+                }}
+                onKeyDown={this.handleKey}
+                style={{width: '100%'}}
+                placeholder="Filter by"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  this.filterProducts(this.state.input)
+                  this.setState({input: ''})
+                }}
+              >
+                Filter
+              </button>
+              <select
+                id="filter"
+                onChange={e => {
+                  this.sortProducts(e)
+                }}
+              >
+                <option id="filter" value="" disabled selected>
+                  Sort by
+                </option>
 
-              <option value="alphabet_asc">Name - A-Z</option>
-              <option value="alphabet_desc">Name - Z-A</option>
+                <option id="filter" value="alphabet_asc">
+                  Name - A-Z
+                </option>
+                <option id="filter" value="alphabet_desc">
+                  Name - Z-A
+                </option>
 
-              <option value="price_asc">Price - Lowest to Highest</option>
-              <option value="price_desc">Price - Highest to Lowest</option>
-            </select>
-          </div>
-          <div className="control" style={{minWidth: '300px'}}>
-            <input
-              type="text"
-              value={this.state.input}
-              onChange={evt => {
-                this.setState({input: evt.target.value})
-              }}
-              onKeyDown={this.handleKey}
-              style={{width: '100%'}}
-              placeholder="Filter by"
-            />
-            <button
-              type="button"
-              onClick={() => {
-                this.filterProducts(this.state.input)
-                this.setState({input: ''})
-              }}
-            >
-              Filter
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                this.props.fetchProducts()
-                this.setState({input: ''})
-              }}
-            >
-              RESET
-            </button>
-          </div>
-          <div>
+                <option id="filter" value="price_asc">
+                  Price - Lowest to Highest
+                </option>
+                <option id="filter" value="price_desc">
+                  Price - Highest to Lowest
+                </option>
+              </select>
+              <button
+                type="button"
+                onClick={() => {
+                  this.props.fetchProducts()
+                  this.setState({input: ''})
+                }}
+              >
+                RESET
+              </button>
+            </span>
             {products.map(product => (
               <div key={product.id}>
                 <Link to={`/product/${product.id}`}>

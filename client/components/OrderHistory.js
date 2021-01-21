@@ -18,26 +18,38 @@ class OrderHistory extends React.Component {
           {orderHistory.length === 0 ? (
             <div>You Have Not Purchased Any Of Our Crazy Vito's Hats!</div>
           ) : (
-            <div>
+            <div className="orderhistorymap">
               {orderHistory.map(order => {
                 return (
-                  <div key={order.id}>
+                  <div id="borderboi" key={order.id}>
+                    {' '}
+                    ORDER PLACED: <br />{' '}
+                    {dateFormat(order.updatedAt, 'fullDate')} <br />
+                    TOTAL:{' '}
+                    {order.Products.reduce(
+                      (acc, product) =>
+                        acc + product.price * product.orderQuantity,
+                      0
+                    ).toFixed(2)}
                     <br />
                     <br />
-                    <div>
-                      Purchase Date: {dateFormat(order.updatedAt, 'fullDate')}
-                    </div>
-                    <div>
-                      {order.Products.map(product => {
-                        return (
-                          <div key={product.id}>
-                            <div>Name: {product.name}</div>
-                            <div>Price: ${product.price}</div>
-                            <div>Quantity: {product.OrderHistory.quantity}</div>
-                            <img src={product.imageUrl} height="300" />
-                          </div>
-                        )
-                      })}
+                    <div className="borderboi">
+                      <div className="flex-cart">
+                        {order.Products.map(product => {
+                          return (
+                            <div key={product.id}>
+                              <>Name: {product.name}</>
+                              <br />
+                              <>Price: ${product.price}</>
+                              <br />
+                              <>Quantity: {product.OrderHistory.quantity}</>
+                              <br />
+                              <img src={product.imageUrl} height="180" />
+                              <br />
+                            </div>
+                          )
+                        })}
+                      </div>
                     </div>
                   </div>
                 )
